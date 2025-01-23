@@ -24,7 +24,10 @@ Această integrare oferă monitorizare completă a datelor contractuale disponib
   - Afișează soldul de la ultima factură
 
 **Senzorul `Status Factură`**
-  - Afișează dacă ultima factură este Achitată sau Neachitată
+  - **🔍 Monitorizare:**
+    - Afișează dacă ultima factură este Achitată sau Neachitată
+  - **📊 Atribute disponibile:**
+    - Istoricul facturilor din cont
 
 **Senzorul `Total`**
   - Afișează totalul de plată
