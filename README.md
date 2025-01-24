@@ -43,14 +43,51 @@ Această integrare oferă monitorizare completă a datelor contractuale disponib
 
 # 🚀Instalare
 **💡 Instalare prin HACS:**
-1. Adaugă depozitul personalizat în HACS.🛠️
+1. Adaugă [depozitul personalizat](https://github.com/geotibi/apanovaploiesti) în HACS.🛠️
 2. Caută integrarea ApaNova Ploiești și instaleaz-o. ✅
 3. Repornește Home Assistant și configurează integrarea. 🔄
 
 **✋ Instalare manuală:**
-1. Clonează sau descarcă depozitul GitHub. 📂
+1. Clonează sau descarcă [depozitul GitHub](https://github.com/geotibi/apanovaploiesti). 📂
 2. Copiază folderul custom_components/apanovaploiesti în directorul custom_components al Home Assistant. 🗂️
 3. Repornește Home Assistant și configurează integrarea. 🔄
+
+# ✨ Exemple de utilizare
+**🔔 Automatizare pentru avertizare neplată cu o zi înainte de data scadentă:**
+
+
+**🔍 Card pentru afișsarea datelor în Dashboard:**
+
+```bash
+type: entities
+title: Apa Nova Ploiești
+entities:
+  - entity: sensor.apanova_ploiesti_clor
+    name: Cantitate clor în apă
+  - entity: sensor.apanova_ploiesti_cod_client
+    name: Cod client
+  - entity: sensor.apanova_ploiesti_data_emitere
+    name: Dată emitere ultima factură
+  - entity: sensor.apanova_ploiesti_data_plata
+    name: Dată plată ultima factură emisă
+  - entity: sensor.apanova_ploiesti_data_scadenta
+    name: Dată scadență ultima factură emisă
+  - entity: sensor.apanova_ploiesti_numar_factura
+    name: Numărul ultimei facturi emise
+  - entity: sensor.apanova_ploiesti_ph
+    name: pH-ul apei
+  - entity: sensor.apanova_ploiesti_sector
+    name: Sector/zonă
+  - entity: sensor.apanova_ploiesti_sold
+    name: Sold-ul ultimei facturi emise
+  - entity: sensor.apanova_ploiesti_status_factura
+    name: Statusul ultimei facturi emise
+  - entity: sensor.apanova_ploiesti_total
+    name: Total de plată
+```
+
+![image](https://github.com/user-attachments/assets/861d1abd-e0fd-4793-afc6-328e49312ad6)
+
 
 # ☕ Susține dezvoltatorul
 Dacă îți place această integrare și vrei să sprijini efortul depus, **Buy me a coffee**
@@ -59,5 +96,9 @@ Dacă îți place această integrare și vrei să sprijini efortul depus, **Buy 
 
 Mulțumesc
 
+## Contribuții
+
+Contribuțiile sunt întotdeauna binevenite! Simte-te liber să vii cu idei noi de îmbunătățire sau să raportezi probleme [aici](https://github.com/geotibi/apanovaploiesti/issues).
+
 # 🔰Suport
-Dacă îți place această integrare, oferă-i o ⭐ pe GitHub! 🙏
+Dacă îți place această integrare, oferă-i o ⭐ pe [GitHub](https://github.com/geotibi/apanovaploiesti/)! 🙏
