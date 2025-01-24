@@ -9,7 +9,7 @@ Această integrare oferă monitorizare completă a datelor contractuale disponib
   - Afișează codul de client
 
 **Senzorii `Dată Emitere, Dată Plată, Dată Scadență`**
-  - Afișează data de emitere a ultimei facturi, data când a fost plătită (dacă factura nu a fost achitată va afișa valoarea "Unknown") și data scadentă a ultimei facturi
+  - Afișează data de emitere a ultimei facturi, data când a fost plătită (dacă factura nu a fost achitată va afișa valoarea "0000-00-00") și data scadentă a ultimei facturi
 
 **Senzorul `Număr Factură`**
   - Afișează numărul ultimei facturi
@@ -53,10 +53,34 @@ Această integrare oferă monitorizare completă a datelor contractuale disponib
 3. Repornește Home Assistant și configurează integrarea. 🔄
 
 # ✨ Exemple de utilizare
-**🔔 Automatizare pentru avertizare neplată cu o zi înainte de data scadentă:**
+<h3>🔔 Automatizare pentru avertizare neplată cu o zi înainte de data scadentă:</h3>
 
+Un exemplu de automatizare pe care o poți crea pentru a nu uita de plata facturii.
 
-**🔍 Card pentru afișsarea datelor în Dashboard:**
+```bash
+alias: Notificare factura Apa Nova
+description: Notificare cu o zi înainte de data scadență
+triggers:
+  - trigger: template
+    value_template: >
+      {% set due_date = states('sensor.apanova_ploiesti_data_scadenta') %} {% if
+      due_date != 'unknown' and due_date != '' %}
+        {{ (as_datetime(due_date) - now()).days == 1 }}
+      {% else %}
+        false
+      {% endif %}
+actions:
+  - action: notify.mobile_app_sm_g975f
+    metadata: {}
+    data:
+      message: Mâine este ultima zi de plată a facturii tale Apa Nova
+      title: Notificare Factură Apa Nova
+mode: single
+```
+
+<h3>🔍 Card pentru afișsarea datelor în Dashboard:</h3>
+
+Un exemplu de cum se pot afișa datele în dashboard.
 
 ```bash
 type: entities
@@ -86,7 +110,8 @@ entities:
     name: Total de plată
 ```
 
-![image](https://github.com/user-attachments/assets/861d1abd-e0fd-4793-afc6-328e49312ad6)
+![image](https://github.com/user-attachments/assets/d4ea09f7-771c-4de2-8338-54b5cfe7d89f)
+
 
 
 # ☕ Susține dezvoltatorul
