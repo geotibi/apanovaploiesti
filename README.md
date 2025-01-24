@@ -37,9 +37,9 @@ Această integrare oferă monitorizare completă a datelor contractuale disponib
 **🛠️Interfața UI**
 1. Adaugă integrarea din meniul **Setări > Dispozitive și Servicii > Adaugă Integrare.**
 2. Introdu datele contului ApaNova Ploiești:
-     - **Username:** username-ul contului tău ApaNova
-     - **Password:** parola contului tău ApaNova
-     - **Cod client:** codul de client aferent contului tău ApaNova
+     - **email:** email-ul folosit pentru logarea în contul ApaNova Ploiești
+     - **password:** parola contului ApaNova Ploiești
+     - **cod_client:** codul de client aferent contului tău ApaNova care se găsește și pe factură.
 
 # 🚀Instalare
 **💡 Instalare prin HACS:**
