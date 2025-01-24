@@ -1,0 +1,11 @@
+{
+  "domain": "apanovaploiesti",
+  "name": "Apanova Ploiesti",
+  "version": "2025.1.1",
+  "documentation": "https://www.apanova-ploiesti.ro/",
+  "requirements": ["requests", "beautifulsoup4"],
+  "dependencies": [],
+  "codeowners": ["@geotibi"],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}
