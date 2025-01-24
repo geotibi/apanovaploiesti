@@ -2,6 +2,7 @@ from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
+from homeassistant.helpers.entity_registry import async_get
 from .const import DOMAIN
 import logging
 import aiohttp
@@ -38,7 +39,7 @@ class ApanovaSensor(CoordinatorEntity, SensorEntity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return {SENSOR_TYPES[self._sensor_type]}
+        return f"{SENSOR_TYPES[self._sensor_type]}"
 
     @property
     def icon(self):
@@ -255,7 +256,7 @@ class ApanovaWaterSensor(CoordinatorEntity, SensorEntity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return {SENSOR_TYPES[self._sensor_type]}
+        return f"{SENSOR_TYPES[self._sensor_type]}"
 
     @property
     def icon(self):
