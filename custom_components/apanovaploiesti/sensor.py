@@ -148,8 +148,17 @@ class ApanovaSensor(CoordinatorEntity, SensorEntity):
         return f"{DOMAIN}_{self._sensor_type}"
 
     @property
+    def state_class(self):
+        """Return the state class of the sensor."""
+        if self._sensor_type in ["total", "sold"]:
+            return "measurement"
+        return None
+
+    @property
     def device_class(self):
         """Return the device class of the sensor."""
+        if self._sensor_type in ["total", "sold"]:
+            return None
         return None
 
     @property
@@ -287,6 +296,22 @@ class ApanovaWaterSensor(CoordinatorEntity, SensorEntity):
             return "Lei"
         else:
             return None  # Default unit for other sensors
+        
+    @property
+    def state_class(self):
+        """Return the state class of the sensor."""
+        if self._sensor_type == "clor":
+            return "measurement"  # General category for measurable values
+        elif self._sensor_type == "ph":
+            return "ph"
+        return None
+
+    @property
+    def device_class(self):
+        """Return the device class of the sensor."""
+        if self._sensor_type in ["clor", "ph"]:
+            return None
+        return None
     
     @property
     def device_info(self):
